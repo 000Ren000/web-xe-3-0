@@ -14,6 +14,32 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      includeAssets: ['favicon.png'], // favicon из /src/assets/
+      manifest: {
+        name: 'Web Xe 3.0',
+        short_name: 'WebXe',
+        description: 'Расчет инсулина',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#0d1117', // предполагаемый тёмный фон
+        theme_color: '#0d1117',
+        icons: [
+          {
+            src: 'favicon.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'favicon.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          }
+        ]
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+      },
       devOptions: {
         enabled: true
       }
