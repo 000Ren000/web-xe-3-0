@@ -46,11 +46,7 @@ export const PageCalcFinishedProduct = () => {
 
     if (e) {
       e.preventDefault();
-      // Очищаем форму
-      setForm({
-        Carbohydrates: '',
-        Weight: '',
-      });
+
       setPopupOpened(true);
     }
   };
