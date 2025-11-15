@@ -39,6 +39,8 @@ export const Foods: iFood[] = [
   },
 ];
 
+export const foodApiUrl: string = 'https://45.132.19.122'
+
 export const getFoodsLocal = (): iFood[] => {
   if (typeof window !== 'undefined') {
     const stored = localStorage.getItem('Foods');
@@ -55,7 +57,7 @@ export const setFoodsLocal = (products: iFood[]): void => {
 export const getProducts = (setFoods: (foods: iFood[]) => void): void => {
   //  fetch('https://food-api-8cgu.onrender.com/getall')
   // fetch('http://localhost:5877/getall')
-  fetch('https://food-api-8cgu.onrender.com/getall')
+  fetch(foodApiUrl + '/getall')
     .then((resp) => {
       resp.json().then((data: ApiResponse): void => {
         setFoods(data.foods);
@@ -70,7 +72,7 @@ export const getProducts = (setFoods: (foods: iFood[]) => void): void => {
 export const addProduct = (productData = {}, changeElement: (name: string) => void) => {
   //  fetch('https://food-api-8cgu.onrender.com/create');
   // fetch('http://localhost:5877/create', {
-  fetch('https://food-api-8cgu.onrender.com/create', {
+  fetch(foodApiUrl + '/create', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
