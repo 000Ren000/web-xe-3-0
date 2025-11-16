@@ -39,7 +39,7 @@ export const Foods: iFood[] = [
   },
 ];
 
-export const foodApiUrl: string = 'https://45.132.19.122'
+export const foodApiUrl: string = 'https://antonren.ru'
 
 export const getFoodsLocal = (): iFood[] => {
   if (typeof window !== 'undefined') {
